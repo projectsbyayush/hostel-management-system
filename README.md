@@ -33,7 +33,19 @@ allotments and status changes talk to the real backend and persist in MySQL.
 - MySQL 8 — either a standalone install or the MySQL bundled with **XAMPP**
   (XAMPP default `root` user with **empty password** works with zero configuration)
 
-## 1. Create and configure the database
+## Quick start (Windows, one command)
+
+After installing the prerequisites and starting MySQL (XAMPP → Start), run this
+from the project root — it opens the backend and frontend in two windows and then
+opens the app in your browser:
+
+```powershell
+.\run-project.cmd
+```
+
+Login with `ADMIN_USERNAME` / `ADMIN_PASSWORD` from `backend/.env`.
+Keep both windows open while using the app (Ctrl+C in each to stop).
+Prefer manual steps? They follow below.
 
 No manual SQL needed. Start MySQL, then create an empty database (or let the app create it):
 
