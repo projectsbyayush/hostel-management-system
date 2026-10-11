@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-800 font-sans antialiased;
+  }
+}
+
+/* ---- Text fields: one clean focus treatment, never a stacked/double box ----
+   HeroUI highlights a focused field in two ways at once: an indigo border
+   (focus-within:border-primary) AND an offset outline ring around the whole
+   component (data-focus-visible outline). The offset ring reads as an extra
+   outer box, so it is removed here - the indigo border remains as the single
+   focus signal. */
+div[data-slot='base'][data-focus-visible='true'],
+div[data-slot='input-wrapper'][data-focus-visible='true'] {
+  outline-style: none !important;
+}
+/* Belt and braces: never a native outline on field internals. */
+div[data-slot='input-wrapper'] input:focus,
+div[data-slot='input-wrapper'] textarea:focus {
+  outline: none !important;
+}
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+  .print-hidden {
+    display: none !important;
+  }
+  .print-area {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .print-area * {
+    visibility: visible !important;
+  }
+}

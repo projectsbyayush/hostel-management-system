@@ -1,0 +1,24 @@
+# ---- dependencies ----
+node_modules/
+frontend/node_modules/
+tools/node_modules/
+
+# ---- build output ----
+frontend/dist/
+backend/target/
+
+# ---- env / secrets ----
+.env
+backend/.env
+frontend/.env
+*.log
+
+# ---- IDE ----
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ---- local test database (user-space MySQL used during development) ----
+# (kept outside the repo in %LOCALAPPDATA%\Temp\mysql-hms)
